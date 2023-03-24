@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content4 %}
+    <div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+                <div style="padding-top:20px; margin-left:800px;  font-size:30px; font-weight:900;">Registration</div>
+                <div style="padding-top:20px; margin-left:800px;">
+                    {{ form.fullname.label(class="form-control-label") }}
+
+                    {% if form.fullname.errors %}
+                        {{ form.fullname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fullname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.fullname() }}
+                    {% endif %}
+                </div>
+                <div style="padding-top:20px; margin-left:800px;">
+                    {{ form.email.label() }}
+                    {% if form.email.errors %}
+                        {{ form.email() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email() }}
+                    {% endif %}
+                </div>
+                <div style="padding-top:20px; margin-left:800px;">
+                    {{ form.password.label() }}
+                    {% if form.password.errors %}
+                        {{ form.password() }}
+                        <div style="padding-top:20px; margin-left:800px;">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password() }}
+                    {% endif %}
+                </div>
+                <div style="padding-top:20px; margin-left:800px;">
+                    {{ form.repeatpassword.label() }}
+                    {% if form.repeatpassword.errors %}
+                        {{ form.repeatpassword() }}
+                        <div>
+                            {% for error in form.repeatpassword.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.repeatpassword() }}
+                    {% endif %}
+                </div>
+            <div class="form-group">
+                {{ form.submit(style="padding-top:20px; margin-left:800px;") }}
+            </div>
+            <div style="padding-top:20px; margin-left:800px;" >You have account? Just <a href="/">LOGIN</a></div>
+        </form>
+    </div>
+{% endblock  %}

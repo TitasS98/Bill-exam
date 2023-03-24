@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content3 %}
+    </div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            
+                <div style="padding-top:100px; margin-left:800px; font-size:30px; font-weight:900;">Login</div>
+                <div style="padding-top:20px; margin-left:800px;">
+                    {{ form.email.label(style="margin:20px;") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div>
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(style="margin:20px;") }}
+                    {% endif %}
+                </div>
+                <div style="padding-top:30px; margin-left:800px;">
+                    {{ form.password.label(style="margin:20px;") }}
+                    {% if form.password.errors %}
+                        {{ form.password() }}
+                        <div>
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            
+            </div>
+                {{ form.submit(style="padding-top:20px; margin-left:800px; width:100px; height:38px;") }}
+            </div>
+        </form>
+        <div style="padding-top:20px; margin-left:800px;">Don't have account? <a href="/register">REGISTER</a></div>
+    </div>
+{% endblock  %}
