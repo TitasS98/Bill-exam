@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+
+{% block content2 %}
+
+{% if group_list %}
+{% for group in group_list %}
+<a href="/bills" ><div  style=" display:flex; align-items:center; flex-direction:row; gap: 30px;">
+<div style="width:200px;
+height:100px; border:2px solid #504d4d; border-radius:20px;">
+    <div style="text-align:center;">{{group.groupsid}}</div>
+    <div style="text-align:center;">{{group.tripto}}</div>
+</div>
+</div>
+</a>
+{% endfor %}
+{% endif %}
+{% endblock content2 %}
+
+{% block content %}
+
+<form method="post" action="#">
+    
+    {{ form.hidden_tag() }}
+    <div style="padding-top:30px; margin-left:800px;">
+        {{ form.groupsid.label }}
+        {{ form.groupsid }}
+    </div>
+    <div style="padding-top:30px; margin-left:800px;">
+        {{ form.tripto.label }}
+        {{ form.tripto }}
+    </div>
+    {{ form.submit(style="padding-top:20px; margin-left:800px; width:100px; height:38px;") }}
+</form>
+{% endblock content %}

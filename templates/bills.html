@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+
+{% block content5 %}
+
+<table  style=" padding-top:50px;">
+    <tr>
+        <th style="padding-left:725px; padding-right:150px;">ID</th>
+        <th style=" padding-right:150px;">Description</th>
+        <th style=" padding-right:150px;">Amount</th>
+    </tr>
+    {% for bill in new_bills %}
+    <tr>
+        <td style="padding-left:725px; padding-right:150px;" > {{ loop.index }}</td>
+        <td style= "padding-right:150px;"> {{ bill.descriptionn }}</td>
+        <td style="padding-right:150px;" > {{ bill.ammount }} </td>
+        
+
+    {% endfor %}
+</table>
+
+{% endblock content5 %}
+
+{% block content %}
+
+<form method="post" action="#">
+    
+    {{ form.hidden_tag() }}
+    <div style="padding-top:20px; margin-left:800px; width:100px; height:38px;">
+        {{ form.descriptionn.label }}
+        {{ form.descriptionn }}
+    </div>
+    <div style="padding-top:20px; margin-left:800px; width:100px; height:38px;">
+        {{ form.ammount.label }}
+        {{ form.ammount }}
+    </div>
+    {{ form.submit(style="padding-top:20px; margin-left:800px; width:100px; height:38px;") }}
+</form>
+{% endblock content %}
